@@ -10,4 +10,4 @@ images = [
 widget.partnerId      = "ac42be375feb79fe55e6"
 widget.partnerSecret  = "93823b7bed3552131a7f"
 widget.host           = "https://widget-service-sandbox.animoto.com"
-widget.appId          = "54ef03a11507570fcb49"
+widget.appId          = "46053ed4739ffc1aa0c5"
