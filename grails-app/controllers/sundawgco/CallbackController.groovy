@@ -19,10 +19,12 @@ class CallbackController {
 
     /**
      * Let's test the Callback utility's ability to deserialize callback JSON into resource objects.
+     *
+     * Grails has built in JSON deserializers but let's pretend we need something else.
      */
     BaseResource resource = (BaseResource) CallbackUtil.generateFromJson(body)
     resource.prettyPrintToSystem()
-    response.send(status: 200, message: "ok")
+    render "ok"
   }
 
   /**
