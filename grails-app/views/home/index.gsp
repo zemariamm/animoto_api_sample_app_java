@@ -1,5 +1,5 @@
 <meta name="layout" content="app"></meta>
-<h1>Photo Album - SunDawg's Little Puppies, Now With 100% More Java</h1>
+<h1>Photo Album - SunDawg's Little Puppies</h1>
 
 <% for (image in images) { %>
   <img height="100px" src="<%= image %>"/>

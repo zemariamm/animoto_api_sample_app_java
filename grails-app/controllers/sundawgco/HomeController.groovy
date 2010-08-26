@@ -1,7 +1,5 @@
 package sundawgco
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder as configurationHolder
-
 import com.animoto.api.ApiClient;
 import com.animoto.api.RenderingManifest;
 import com.animoto.api.RenderingProfile;
@@ -19,7 +17,7 @@ class HomeController {
 
   def beforeInterceptor = {
     if (config == null) {
-      config = new ConfigSlurper().parse(new File('grails-app/conf/App.groovy').toURL())
+      config = grailsApplication.config
     }
     if (apiClient == null) {
       apiClient = new ApiClient(config.platform.key, config.platform.secret, config.api2.host)
