@@ -5,7 +5,7 @@
     <script src="/sundawgco/js/flowplayer-3.2.2.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <a href="/sundawgco/home">Home</a> | <a href="/sundawco/callback">View Callbacks</a>
+    <a href="/sundawgco/">Home</a> | <a href="/sundawgco/callback">View Callbacks</a>
     <g:layoutBody/>
   </body>
 </html>
