@@ -20,4 +20,3 @@ $(function() {
 </script>
 <h1>Your Animoto video is rendering...</h1>
 <p>Just hang out and we'll show your video soon. Maybe grab an O'Douls from Bar Web2.</p>
-<h1>Polling This Thing <%= videoUrl %></h1>

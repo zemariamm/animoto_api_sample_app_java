@@ -85,7 +85,7 @@ class HomeController {
   }
 
   /**
-   * AJAX endpoint to determine if the video job is complete
+   * AJAX endpoint to determine if the video job is complete and return JSON.
    */
   def poll = {
     def renderingJob = new RenderingJob()
