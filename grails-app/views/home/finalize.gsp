@@ -3,7 +3,7 @@
 $(function() {
   var interval = setInterval(function() {
     $.ajax({
-      url: '/sundawgco/poll?jobUrl=<%= videoUrl %>',
+      url: '/sundawgco/poll?encoded=true&jobUrl=<%= videoUrl %>',
       dataType: 'json',
       success: function(data) {
         if (data.completed) {

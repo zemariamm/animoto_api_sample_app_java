@@ -1,10 +1,13 @@
 package sundawgco
 
+import java.util.regex.Pattern;
+
 import com.animoto.api.ApiClient;
 import com.animoto.api.RenderingManifest;
-import com.animoto.api.RenderingProfile;
-import com.animoto.api.enums.VerticalResolution;
+import com.animoto.api.RenderingParameters;
+import com.animoto.api.enums.Resolution;
 import com.animoto.api.enums.Format;
+import com.animoto.api.enums.Framerate;
 import com.animoto.api.resource.Storyboard;
 import com.animoto.api.resource.RenderingJob;
 import com.animoto.api.resource.Video;
@@ -54,6 +57,14 @@ class HomeController {
    */
   def play = {
     def videoUrl = params['links[video]']
+
+    // Get rid of me after Moses makes change to SWF
+    if (videoUrl == null)
+      videoUrl = params['links[file]']
+
+    if (videoUrl == null)
+      videoUrl = session['videoUrl']
+
     return [videoUrl: videoUrl]
   }
 
@@ -63,7 +74,7 @@ class HomeController {
   def finalize = {
     def storyboardUrl = params['links[storyboard]']
     def renderingManifest = new RenderingManifest()
-    def renderingProfile = new RenderingProfile()
+    def renderingParameters = new RenderingParameters()
     def storyboard = new Storyboard()
   
     /**
@@ -71,12 +82,12 @@ class HomeController {
      */ 
     storyboard.url = storyboardUrl
 
-    renderingProfile.verticalResolution = VerticalResolution.VR_720P
-    renderingProfile.framerate = 30
-    renderingProfile.format = Format.H264
+    renderingParameters.resolution = Resolution.R_720P
+    renderingParameters.framerate = Framerate.F_30 
+    renderingParameters.format = Format.H264
 
     renderingManifest.storyboard = storyboard
-    renderingManifest.renderingProfile = renderingProfile
+    renderingManifest.renderingParameters = renderingParameters
 
     def renderingJob = apiClient.render(renderingManifest)
     return [videoUrl: renderingJob.url]
@@ -92,7 +103,8 @@ class HomeController {
     if (renderingJob.completed) {
       def video = renderingJob.video
       apiClient.reload(video)
-      render(text: "{\"completed\":true, \"url\":\"/sundawgco/play?links[video]=" + video.links.get("download")+ "\"}", contentType: "text/json")
+      session['videoUrl'] = video.links.get("file")
+      render(text: "{\"completed\":true, \"url\":\"/sundawgco/play?links[video]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
     }
     else {
       render(text: "{\"completed\":false}", contentType:"text/json")

@@ -22,6 +22,7 @@ class CallbackController {
      *
      * Grails has built in JSON deserializers but let's pretend we need something else.
      */
+    System.out.println("HERE IS RAW JSON " + body);
     BaseResource resource = (BaseResource) CallbackUtil.generateFromJson(body)
     resource.prettyPrintToSystem()
     render "ok"
