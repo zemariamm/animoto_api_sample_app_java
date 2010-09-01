@@ -56,15 +56,7 @@ class HomeController {
    * Video playback.
    */
   def play = {
-    def videoUrl = params['links[video]']
-
-    // Get rid of me after Moses makes change to SWF
-    if (videoUrl == null)
-      videoUrl = params['links[file]']
-
-    if (videoUrl == null)
-      videoUrl = session['videoUrl']
-
+    def videoUrl = params['links[file]']
     return [videoUrl: videoUrl]
   }
 
@@ -103,8 +95,7 @@ class HomeController {
     if (renderingJob.completed) {
       def video = renderingJob.video
       apiClient.reload(video)
-      session['videoUrl'] = video.links.get("file")
-      render(text: "{\"completed\":true, \"url\":\"/sundawgco/play?links[video]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
+      render(text: "{\"completed\":true, \"url\":\"/sundawgco/play?links[file]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
     }
     else {
       render(text: "{\"completed\":false}", contentType:"text/json")
