@@ -18,7 +18,7 @@ The sample application tests the following concepts when working with the Animot
 
 The Java web framework used was Groovy on Grails version 1.3.4. You can download it here:
 
-  http://www.grails.org/Download
+http://www.grails.org/Download
 
 == What You Need From Animoto
 
@@ -34,7 +34,7 @@ You will need the following from Animoto to get your application to work:
 
 You can try the application here:
 
-  http://184.106.216.218/sundawgco/home
+http://184.106.216.218/sundawgco/home
 
 == More Information
 
