@@ -28,14 +28,14 @@ class HomeController {
   }
 
   /**
-   * Homepage.
+   * Homepage that renders a faux photo album gallery.
    */
   def index = { 
     return [images : config.images]
   }
 
   /**
-   * Create workflow signature and create widget in frame.
+   * Create a workflow signature and create widget in iframe.
    */
   def widget = {
     def nonce = System.currentTimeMillis()
@@ -53,7 +53,7 @@ class HomeController {
   }
 
   /**
-   * Video playback.
+   * Play the video in a standard web video player.
    */
   def play = {
     def videoUrl = params['links[file]']
@@ -61,7 +61,7 @@ class HomeController {
   }
 
   /**
-   * Render a storyboard from the widget.
+   * Create a video Render with a storyboard from the widget and display an AJAX polling page.
    */
   def finalize = {
     def storyboardUrl = params['links[storyboard]']
@@ -87,6 +87,8 @@ class HomeController {
 
   /**
    * AJAX endpoint to determine if the video job is complete and return JSON.
+   *
+   * The user will wait at this page until the Render is complete from API.
    */
   def poll = {
     def renderingJob = new RenderingJob()

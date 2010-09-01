@@ -82,7 +82,9 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-// Application specific properties.
+// Workflow Application specific properties.
+
+// These are the photo gallery images.
 images = [
   'http://s3-p.animoto.com/Image/t9KLX4mC4sAbsAAjIKPMuQ/l.jpg',
   'http://s3-p.animoto.com/Image/J14rwixVGvmx1coDBuiKyg/l.jpg',
@@ -92,6 +94,7 @@ images = [
   'http://s3-p.animoto.com/Image/RSlVAvr57bj1de7YxSf9RQ/l.jpg'
 ]
 
+// These are our Animoto credentials for the Workflow Widget and Platform API.
 widget.partnerId      = "ac42be375feb79fe55e6"
 widget.partnerSecret  = "93823b7bed3552131a7f"
 widget.host           = "https://widget-service-sandbox.animoto.com"
