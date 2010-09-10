@@ -9,6 +9,9 @@ $(function() {
         if (data.completed) {
           window.location = data.url;
         }
+        else {
+          $('#status').html($('#status').html() + ".");
+        }
       },
       error: function() {
         alert('Oh no, something went wrong.');
@@ -20,3 +23,6 @@ $(function() {
 </script>
 <h1>Your Animoto video is rendering...</h1>
 <p>Just hang out and we'll show your video soon. Maybe grab an O'Douls from Bar Web2.</p>
+<div id="status">
+  Status: Rendering
+</div>
