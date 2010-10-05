@@ -8,5 +8,7 @@
   <body>
     <a href="<%= request.contextPath %>/home">Home</a> | <a href="<%= request.contextPath %>/callback">View Callbacks</a>
     <g:layoutBody/>
+
+    <g:render template="/layouts/googleAnalytics" />
   </body>
 </html>
