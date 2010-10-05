@@ -5,7 +5,7 @@
   <img height="100px" src="<%= image %>"/>
 <% } %>
 
-<form method="GET" action="/sundawgco/widget">
+<form method="GET" action="<%= request.contextPath %>/widget">
   <% count = 1 %>
   <% for (image in images) { %>
     <input type="hidden" name="workspace.defaultVisuals[<%= count %>].url" value="<%= image %>"/>

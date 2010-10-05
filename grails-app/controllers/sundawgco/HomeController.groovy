@@ -97,7 +97,7 @@ class HomeController {
     if (renderingJob.completed) {
       def video = renderingJob.video
       apiClient.reload(video)
-      render(text: "{\"completed\":true, \"url\":\"/sundawgco/play?links[file]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
+      render(text: "{\"completed\":true, \"url\":\"" + request.contextPath + "/play?links[file]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
     }
     else {
       render(text: "{\"completed\":false}", contentType:"text/json")

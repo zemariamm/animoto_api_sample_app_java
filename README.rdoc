@@ -34,7 +34,7 @@ You will need the following from Animoto to get your application to work:
 
 You can try the application here:
 
-http://java-workflow-sample.animoto.com/sundawgco/home
+http://java-workflow-sample.animoto.com
 
 == More Information
 
