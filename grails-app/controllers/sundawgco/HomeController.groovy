@@ -99,6 +99,9 @@ class HomeController {
       apiClient.reload(video)
       render(text: "{\"completed\":true, \"url\":\"" + request.contextPath + "/play?links[file]=" + URLEncoder.encode(video.links.get("file"))+ "\"}", contentType: "text/json")
     }
+    else if (renderingJob.failed) {
+      throw new Exception("Rendering job failed [" + renderingJob.metadata + "])
+    }
     else {
       render(text: "{\"completed\":false}", contentType:"text/json")
     }
