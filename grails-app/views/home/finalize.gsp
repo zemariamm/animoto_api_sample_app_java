@@ -1,7 +1,7 @@
 <meta name="layout" content="app"></meta>
 <script type="text/javascript" charset="utf-8">
 $(function() {
-  var interval = setInterval(function() {
+  var intervalId = setInterval(function() {
     $.ajax({
       url: '<%= request.contextPath %>/poll?rnd=' + Math.floor(Math.random() * 2048) + '&jobUrl=<%= videoUrl %>',
       dataType: 'json',
@@ -15,7 +15,7 @@ $(function() {
       },
       error: function() {
         alert('Oh no, something went wrong.');
-        interval.clearInterval();
+        clearInterval(intervalId);
       }
     });
   }, 5000);
